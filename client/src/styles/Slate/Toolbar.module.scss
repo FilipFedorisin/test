@@ -1,0 +1,19 @@
+.toolbar {
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 15px;
+  select {
+    height: 30px;
+    border: none;
+    width: 6.9rem;
+  }
+}
+.toolbar_grp > * {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.toolbar_grp {
+  margin: 0 10px;
+}

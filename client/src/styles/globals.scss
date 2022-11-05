@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100 text-black;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  @apply text-2xl font-medium text-black;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(83, 83, 83, 0.37) !important;
+  &:hover {
+    color: #00afb9 !important;
+  }
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #00afb9 !important;
+  opacity: 1;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: 0;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin-bottom: 1px;
+  &:focus {
+    border-bottom: 2px solid #00afb9;
+    margin-bottom: 0px;
+  }
+}
+
+textarea {
+  outline: 0;
+  &:focus {
+    border-bottom: 2px solid #00afb9;
+  }
+}
+
+button {
+  @apply h-[42px]  rounded-sm text-start text-main hover:shadow-none;
+  text-decoration: none;
+  transition: transform 0.1s;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.03);
+  }
+  &:active {
+    transform: translateX(0.5px) translateY(1px);
+    transition: transform 0.1s;
+  }
+}
+
+table {
+  font: 1em 'Lucida Grande', 'Helvetica', 'Arial', sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    font: 1em 'Lucida Grande', 'Helvetica', 'Arial', sans-serif;
+  }
+}
+
+.container__small {
+  @apply m-4 h-1/2 w-96 flex-col rounded-2xl bg-white p-8 shadow-2xl md:h-2/4;
+}
+
+.product__wrapper {
+  @apply m-0   flex w-full flex-wrap justify-between gap-4;
+}
+
+.product__card {
+  @apply m-0 inline-block h-auto flex-grow flex-col rounded-2xl  bg-white p-4 text-black;
+  text-decoration: none;
+  transition: transform 0.1s;
+  transition: 0.2s ease-in-out;
+  max-height: 17rem;
+  max-width: 210px;
+  border: 1px solid #44474b41;
+  img {
+    width: 124px;
+    height: 83px;
+    background: #000;
+  }
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.08);
+  }
+  &:active {
+    transform: translateX(0.5px) translateY(1px);
+    transition: transform 0.1s;
+  }
+}
+
+//! Animations
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

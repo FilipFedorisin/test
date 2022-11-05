@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "6f565c7e-3a86-4db6-9a77-8b32943ceb39",
+    "name": "sickomozne",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-07-11T17:55:59.292Z",
+    "modified": "2022-07-19T13:40:31.603Z",
+    "data": [
+      {
+        "name": "server",
+        "value": "http://localhost:8085"
+      },
+      {
+        "name": "cart_id",
+        "value": "62d6ab7427dc706c25b04cc7"
+      },
+      {
+        "name": "session",
+        "value": "da4e3f454a125b1139ddf9ed6082a406188143fb0a0d3ea696081db18862ba00"
+      },
+      {
+        "name": "user_session",
+        "value": "95e0d241be27cd8ff228e27245861a887065a69f748ddb410c60b00be15e8eba"
+      },
+      {
+        "name": "user_cart_id",
+        "value": "62cef628edef316b9fd6b604"
+      },
+      {
+        "name": "admin_session",
+        "value": "7415b189bd0516d7591ec8863cb7da3bf6afb47600be19e1c7271699ff6620d4"
+      },
+      {
+        "name": "product_id",
+        "value": "62d6b1aa9041dd35a288a331"
+      },
+      {
+        "name": "access_token",
+        "value": "GQY88NXh+/d6TXyfUAXFc66vsqe2KV8WqTfMaJ8xYfZ3GkHw0VKCZ4OdesmB625vKhJ2/xsLzZ3FWSlh4oBa9Q=="
+      }
+    ]
+  }
+]

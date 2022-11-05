@@ -1,0 +1,179 @@
+### Create a new user
+POST http://localhost:8085/api/v1/user/signup HTTP/1.1
+
+{
+	"firstname": "JohnTest",
+	"lastname": "Doe",
+	"email": "admins@example.com",
+	"password": "Test1234",
+	"mobile": "123456789",
+	"privacy": true
+}
+
+
+### Log in a user
+POST http://localhost:8085/api/v1/user/login HTTP/1.1
+
+{
+	"email": "admin@example.com",
+	"password": "Test1234"
+}
+
+
+### Log out a user
+POST http://localhost:8085/api/v1/user/logout HTTP/1.1
+Cookie: session=378039b6668ec96f1ecdd30ea1c54b26ca1715c44b788f4dddf036319d5bbcea;
+
+
+
+
+
+
+
+
+### Get current user
+GET http://localhost:8085/api/v1/user/info HTTP/1.1
+Cookie: session=ca9ff75c5be132a79bd19787a6d3d6f5457f4ea5a67c3c49f56602b0af29ef4f;
+
+
+### Edit current user
+POST http://localhost:8085/api/v1/user/edit HTTP/1.1
+Cookie: session=9a762c399dd942759f9a55befbac91292a8512ce1e51ae40401749fc934fcf21;
+
+{
+	"firstname": "John",
+	"lastname": "Doe1",
+	"email": "email@example.com"
+}
+
+
+
+
+
+
+
+
+
+### Get a user by ID
+GET http://localhost:8085/api/v1/user/62a0e6b5ddca17f5c8ce41ae/info HTTP/1.1
+Cookie: session=9a762c399dd942759f9a55befbac91292a8512ce1e51ae40401749fc934fcf21;
+
+
+### Edit a user
+POST http://localhost:8085/api/v1/user/62a0e6b5ddca17f5c8ce41ae/edit HTTP/1.1
+
+{
+	"firstname": "John",
+	"lastname": "Doe9",
+	"email": "email@example.com"
+}
+
+
+
+
+
+
+
+
+
+### Upload media file
+POST http://localhost:8085/api/v1/media/upload HTTP/1.1
+Cookie: session=0d9e6c1f3ad71218678b9ac859aea21d380766c131c3b69a3bda6903e0b55781;
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="files"; filename="sample.jpg"
+Content-Type: image/jpeg
+
+< ./sample.jpg
+--boundary--
+
+
+### Remove uploaded file
+POST http://localhost:8085/api/v1/media/62c87a163b9917ef1efa1e6b/remove HTTP/1.1
+Cookie: session=0d9e6c1f3ad71218678b9ac859aea21d380766c131c3b69a3bda6903e0b55781;
+
+
+### Get uploaded file
+GET http://localhost:8085/media/62a34d2723bb56603f360ca5.jpg HTTP/1.1
+
+
+
+
+
+
+
+
+
+### Create a new product
+POST http://localhost:8085/api/v1/product/create HTTP/1.1
+Cookie: session=5bc0bd079b31d96681b57fd6c9d8bccd0565faf2119e5f2cd9d1d8f98a5288c0;
+
+{
+	"name": "Test product",
+	"description": "Test product description",
+	"short_description": "Test product short description",
+	"category": "Test category",
+	"unit": "pcs",
+	"unit_price": 5.0,
+	"quantity": 10,
+	"vat": 20.0,
+	"thumbnail": "62a34d2723bb56603f360ca5",
+	"gallery": ["62a34d2723bb56603f360ca5"]
+}
+
+
+### Edit the product
+POST http://localhost:8085/api/v1/product/62b9e2a8f259e298d16d6920/edit HTTP/1.1
+Cookie: session=fe0c622b192d5db88c3ecd00779f2b6d2fcd62915136b88e3b22410e7daea1f0;
+
+{
+	"name": "Test product 2",
+	"description": "Test product description",
+	"short_description": "Test product short description",
+	"category": "Test category",
+	"unit": "pcs",
+	"unit_price": 5.0,
+	//"quantity": 10,
+	"vat": 20.0,
+	"thumbnail": "62cc1270534b81e45b6b6c1a",
+	"gallery": ["62cc1270534b81e45b6b6c1a"]
+}
+
+
+### Update product quantity
+POST http://localhost:8085/api/v1/product/62b9e2a8f259e298d16d6920/update_stock HTTP/1.1
+Cookie: session=6b1e9454849f22ed8cf3b6ae6ba01dc3eacd530bcdab3c4ca77a4706784f38fd;
+
+{
+	"quantity": 20,
+	"description": "Test product description"
+}
+
+
+### Get the product details
+GET http://localhost:8085/api/v1/product/62b9e2a8f259e298d16d6920/info HTTP/1.1
+Cookie: session=7b3d545cb4259f4d0963a761b470f33a2b0e41ea2924369c6da9c0fe487ac8e2;
+
+
+
+### Create a review for the product
+POST http://localhost:8085/api/v1/product/62b9e2a8f259e298d16d6920/create_review HTTP/1.1
+Cookie: session=0d9e6c1f3ad71218678b9ac859aea21d380766c131c3b69a3bda6903e0b55781;
+
+{
+	"content": "Test review content",
+	"rating": 1.0,
+	"cons": [],
+	"pros": []
+}
+
+
+### Like the product review
+POST http://localhost:8085/api/v1/review/62c1d4128e20229fff40eeec/like HTTP/1.1
+Cookie: session=5bc0bd079b31d96681b57fd6c9d8bccd0565faf2119e5f2cd9d1d8f98a5288c0;
+
+
+### Delete the product review
+POST http://localhost:8085/api/v1/review/62b9fa94893802a199da65fe/delete HTTP/1.1
+Cookie: session=13f7a2d485d01d3eee4f212f05ed3a2ad565e5058332fbc453043b1f367d1fb4;

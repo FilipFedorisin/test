@@ -1,0 +1,56 @@
+NOK Auth
+  NOK Signup Component -> Signup Page
+    NOK form submit validation
+    NOK form fields validation
+  NOK User profile page
+    NOK Billing details for person, add multiple
+    NOK Billing details for company
+    NOK Shipping details add option to add multiple
+    NOK Orders
+
+NOK Catalog
+  NOK Product page
+    NOK Description / Options
+    NOK Parameters
+    NOK Reviews
+  NOK Catalog page , filters and results
+
+NOK Admin
+  NOK Product admin 
+    NOK add product
+    NOK search edit products
+    NOK styling
+  NOK Users admin
+
+
+// another time
+
+NOK Navigation
+  OK signup options
+  NOK Cart
+  NOK Search
+  NOK Menu
+
+NOK Cart
+  NOK Cart component
+
+NOK Main page
+  NOK Banner component
+
+NOK Admin
+  NOK Banner admin
+
+NOK Checkout 
+  NOK Checkout page
+    NOK Review products in cart
+    NOK Billing data / or choose from profile saved
+    NOK Delivery data / or choose from profile saved
+    NOK Delivery Method
+      NOK Pošta
+      NOK DHL
+      NOK Packeta
+    NOK Payment method ??? need to implement
+
+!! fix typesript
+
+kosik indikator počtu 

@@ -1,0 +1,29 @@
+{
+  "http-port": 8085,
+  "enable-http-server": true,
+  "enable-cli": true,
+  "debug": true,
+  "login": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "ssh": {
+    "enabled": false,
+    "port": 22
+  },
+  "database": {
+    "url": "mongodb://localhost:27017/",
+    "name": "Test"
+  },
+  "path": {
+    "ffmpeg": null,
+    "ffprobe": null
+  },
+  "media": {
+    "image_versions": [1600, 1200, 800, 640, 320, 240, 160],
+    "image_extensions": ["jpg", "jpeg", "png"]
+  },
+  "access": {
+    "token": "GQY88NXh+/d6TXyfUAXFc66vsqe2KV8WqTfMaJ8xYfZ3GkHw0VKCZ4OdesmB625vKhJ2/xsLzZ3FWSlh4oBa9Q=="
+  }
+}

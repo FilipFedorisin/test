@@ -1,0 +1,628 @@
+[
+  {
+    "_id": "679c5bed-aa23-487a-b943-6c492edd7838",
+    "colId": "45f46ef9-7d72-4419-a18e-4532a7b10a31",
+    "containerId": "",
+    "name": "Product Info",
+    "url": "{{server}}/api/v1/product/{{product_id}}/info",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-07-11T17:59:14.634Z",
+    "modified": "2022-07-15T17:25:20.932Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "schema",
+        "value": "{}"
+      }
+    ]
+  },
+  {
+    "_id": "a818a094-640e-4c2a-a4f5-e4a2364df4c6",
+    "colId": "45f46ef9-7d72-4419-a18e-4532a7b10a31",
+    "containerId": "",
+    "name": "Create Product",
+    "url": "{{server}}/api/v1/product/create",
+    "method": "POST",
+    "sortNum": 5000,
+    "created": "2022-07-11T18:02:59.701Z",
+    "modified": "2022-07-19T13:29:13.236Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{admin_session}};"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n\t\"name\": \"Test product 2\",\r\n\t\"description\": \"Test product description\",\r\n\t\"short_description\": \"Test product short description\",\r\n\t\"category\": \"Test category\",\r\n\t\"unit\": \"pcs\",\r\n\t\"unit_price\": 5.0,\r\n\t\"quantity\": 5,\r\n\t\"vat\": 20.0,\r\n\t\"thumbnail\": \"62a34d2723bb56603f360ca5\",\r\n\t\"gallery\": [\"62a34d2723bb56603f360ca5\"],\r\n\t\"variants\": [],\r\n\t\"parameters\": [\r\n\t    {\"name\": \"my_key\", \"value\": \"myValue\"}\r\n\t]\r\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.product.id",
+        "action": "setto",
+        "value": "{{product_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "237411d7-47b5-45fa-b4c6-9b7d062d9eba",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Create Cart",
+    "url": "{{server}}/api/v1/cart/create",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-07-13T15:14:54.899Z",
+    "modified": "2022-07-13T16:51:44.213Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Test Cart\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.cart.id",
+        "action": "setto",
+        "value": "{{cart_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "f6dba194-5287-4997-958e-db8c55291d7b",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Create Cart",
+    "url": "{{server}}/api/v1/cart/create",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-07-13T15:35:43.198Z",
+    "modified": "2022-07-13T16:53:58.912Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Test Cart\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.cart.id",
+        "action": "setto",
+        "value": "{{cart_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "d337a3ef-513a-4515-ba4a-03cb24571f54",
+    "colId": "b8230100-2e08-408d-854e-9c1bf8816370",
+    "containerId": "",
+    "name": "Login User",
+    "url": "{{server}}/api/v1/user/login",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-07-13T15:41:06.583Z",
+    "modified": "2022-07-13T17:02:17.336Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"email\": \"user@example.com\",\n\t\"password\": \"Test1234\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "cookie.session",
+        "action": "setto",
+        "value": "{{user_session}}"
+      }
+    ]
+  },
+  {
+    "_id": "5ed7fb56-dfdd-41d1-a192-aff9b75241c7",
+    "colId": "b8230100-2e08-408d-854e-9c1bf8816370",
+    "containerId": "",
+    "name": "Logout User",
+    "url": "{{server}}/api/v1/user/logout",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-07-13T15:43:56.053Z",
+    "modified": "2022-07-13T17:02:28.166Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0273ac88-95f4-401e-bb98-8d02f352a3e9",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Login Test User",
+    "url": "{{server}}/api/v1/user/login",
+    "method": "POST",
+    "sortNum": 15000,
+    "created": "2022-07-13T15:52:21.008Z",
+    "modified": "2022-07-13T16:29:53.194Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"email\": \"user@example.com\",\n\t\"password\": \"Test1234\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "cookie.session",
+        "action": "setto",
+        "value": "{{user_session}}"
+      }
+    ]
+  },
+  {
+    "_id": "0e7ddb14-97ee-4e79-9195-9661382b0969",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Delete Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/delete",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-07-13T16:04:12.758Z",
+    "modified": "2022-07-13T16:53:35.371Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      }
+    ]
+  },
+  {
+    "_id": "9cd29529-12ca-470c-8410-0b8e1e764b6d",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Edit Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/edit",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-07-13T16:14:58.180Z",
+    "modified": "2022-07-13T16:52:01.595Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "{{user_session}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Some other name\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f2c5a44c-83cc-4a16-ac5c-d8fea18ec4cd",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Edit Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/edit",
+    "method": "POST",
+    "sortNum": 35000,
+    "created": "2022-07-13T16:17:52.854Z",
+    "modified": "2022-07-13T16:53:23.844Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Some other test name\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.name",
+        "action": "equal",
+        "value": "Some other test name"
+      }
+    ]
+  },
+  {
+    "_id": "f2b44aee-27c7-42b7-a3d2-4a879bbe2da4",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Cart Info",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/info",
+    "method": "GET",
+    "sortNum": 32500,
+    "created": "2022-07-13T16:22:02.302Z",
+    "modified": "2022-07-19T13:02:24.254Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.id",
+        "action": "equal",
+        "value": "{{cart_id}}"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.name",
+        "action": "equal",
+        "value": "Test Cart"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.items",
+        "action": "istype",
+        "value": "array"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.created",
+        "action": "istype",
+        "value": "number"
+      }
+    ]
+  },
+  {
+    "_id": "43adf0fc-d12b-4084-8f5d-d331c78d4685",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Update Cart (Implement)",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/update",
+    "method": "POST",
+    "sortNum": 37500,
+    "created": "2022-07-13T16:33:01.723Z",
+    "modified": "2022-07-13T16:53:30.174Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Some other test name\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.name",
+        "action": "equal",
+        "value": "Some other test name"
+      }
+    ]
+  },
+  {
+    "_id": "2208a972-5485-408b-bbf4-cce2ecd81d60",
+    "colId": "e3540b1e-6e7f-4c60-b712-e813b5f71005",
+    "containerId": "1fab7e37-efba-4f2b-b525-9a209705b043",
+    "name": "Clear Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/clear",
+    "method": "POST",
+    "sortNum": 38750,
+    "created": "2022-07-13T16:40:10.773Z",
+    "modified": "2022-07-19T13:02:42.625Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cart.items",
+        "action": "count",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "_id": "614e908e-f5bc-4776-a1d1-6fc0ddb93ded",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Cart Info",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/info",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2022-07-13T16:44:04.357Z",
+    "modified": "2022-07-13T16:51:46.776Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b13a7795-f6dc-4c91-83ef-c0e45f6afcc5",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Delete Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/delete",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-07-13T16:52:45.560Z",
+    "modified": "2022-07-13T16:53:09.982Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.status",
+        "action": "equal",
+        "value": "OK"
+      }
+    ]
+  },
+  {
+    "_id": "8cde8e73-d52e-49cf-be20-5443716f7702",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Clear Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/clear",
+    "method": "POST",
+    "sortNum": 25000,
+    "created": "2022-07-13T16:54:26.227Z",
+    "modified": "2022-07-13T16:54:43.223Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b3961678-3de7-4f02-9340-15067d649735",
+    "colId": "b8230100-2e08-408d-854e-9c1bf8816370",
+    "containerId": "",
+    "name": "Login Admin (helper)",
+    "url": "{{server}}/api/v1/user/login",
+    "method": "POST",
+    "sortNum": 15000,
+    "created": "2022-07-13T17:02:33.132Z",
+    "modified": "2022-07-13T17:03:11.675Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"email\": \"admin@example.com\",\n\t\"password\": \"Test1234\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "cookie.session",
+        "action": "setto",
+        "value": "{{admin_session}}"
+      }
+    ]
+  },
+  {
+    "_id": "23e14d1e-31b1-49b5-84f3-abc261eef31a",
+    "colId": "b5223886-4a4f-40ee-a98d-b4c5246df5ae",
+    "containerId": "",
+    "name": "Update Cart",
+    "url": "{{server}}/api/v1/cart/{{cart_id}}/update",
+    "method": "POST",
+    "sortNum": 22500,
+    "created": "2022-07-15T17:02:39.126Z",
+    "modified": "2022-07-15T17:22:05.709Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "{{user_session}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"product\": \"{{product_id}}\",\n    \"variant\": \"MUW-AX3SH-98\",\n    \"quantity\": 8\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7c3d9efd-249b-490c-9367-5f3d040f0067",
+    "colId": "b8230100-2e08-408d-854e-9c1bf8816370",
+    "containerId": "",
+    "name": "User Info",
+    "url": "{{server}}/api/v1/user/info",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2022-07-19T12:26:05.896Z",
+    "modified": "2022-07-19T12:26:34.167Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9d7b6ba1-7730-4d05-afd4-3f6b6a82d97e",
+    "colId": "45f46ef9-7d72-4419-a18e-4532a7b10a31",
+    "containerId": "",
+    "name": "All Products",
+    "url": "{{server}}/api/v1/product/dump",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-07-19T13:27:29.498Z",
+    "modified": "2022-07-19T13:40:43.419Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{user_session}};"
+      },
+      {
+        "name": "Authorization",
+        "value": "Bearer {{access_token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "93523120-7fe8-4310-ac7b-4bb40fd0a97a",
+    "colId": "45f46ef9-7d72-4419-a18e-4532a7b10a31",
+    "containerId": "",
+    "name": "Search products",
+    "url": "{{server}}/api/v1/product/search?query=test&last_id=62d6a96b81b08e8a30e9ebdf",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-20T20:12:02.233Z",
+    "modified": "2022-07-20T21:11:40.577Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{admin_session}};"
+      }
+    ],
+    "params": [
+      {
+        "name": "query",
+        "value": "test",
+        "isPath": false
+      },
+      {
+        "name": "last_id",
+        "value": "62d6a96b81b08e8a30e9ebdf",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "1557adde-3d62-460b-ac86-447898e9fa0d",
+    "colId": "b8230100-2e08-408d-854e-9c1bf8816370",
+    "containerId": "",
+    "name": "Search users",
+    "url": "{{server}}/api/v1/user/search?query=John",
+    "method": "GET",
+    "sortNum": 18750,
+    "created": "2022-07-20T21:11:05.628Z",
+    "modified": "2022-07-20T21:15:14.602Z",
+    "headers": [
+      {
+        "name": "Cookie",
+        "value": "session={{admin_session}};"
+      }
+    ],
+    "params": [
+      {
+        "name": "query",
+        "value": "John",
+        "isPath": false
+      },
+      {
+        "name": "last_id",
+        "value": "62c6f94fec7f77bf68b0bb11",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
+    "tests": []
+  }
+]
